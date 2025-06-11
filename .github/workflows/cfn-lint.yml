@@ -25,8 +25,9 @@ jobs:
       # Runs the ESlint code analysis
       - name: Run cfn-lint
         # eslint exits 1 if it finds anything to report
-        run: cfn-lint **/*.yaml -f sarif --output results.sarif
+        run: cfn-lint projects/*.yaml -f sarif --output results.sarif
       # Uploads results.sarif to GitHub repository using the upload-sarif action
+      - name: Upload SARIF results file
       - uses: github/codeql-action/upload-sarif@v3
         with:
           # Path to SARIF file relative to the root of the repository
