@@ -22,6 +22,7 @@ jobs:
         run: |
           pip install --upgrade pip
           pip install cfn-lint[sarif]
+          shopt -s globstar # enable globbing
       # Runs the ESlint code analysis
       - name: Run cfn-lint
         # eslint exits 1 if it finds anything to report
