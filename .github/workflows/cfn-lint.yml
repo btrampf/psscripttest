@@ -26,6 +26,7 @@ jobs:
         run: |
          ls -la
          pwd
+         ls -la ./Projects
       # Runs the cfn-lint code analysis
       - name: Run cfn-lint
         run: |
