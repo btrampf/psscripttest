@@ -26,7 +26,8 @@ jobs:
       - name: Run cfn-lint
         # eslint exits 1 if it finds anything to report
         run: |
-         shopt -s globstar # enable globbing
+         ls -la
+         shopt -s globstar
          cfn-lint --version
          cfn-lint ./**/*.yaml
       # Uploads results.sarif to GitHub repository using the upload-sarif action
