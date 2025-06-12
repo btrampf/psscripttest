@@ -32,6 +32,7 @@ jobs:
          shopt -s globstar
          cfn-lint --version
          cfn-lint ./**/*.yaml -f sarif --output results.sarif
+         ls -la
       # Uploads results.sarif to GitHub repository using the upload-sarif action
       - name: Upload SARIF results file
         uses: github/codeql-action/upload-sarif@v3
