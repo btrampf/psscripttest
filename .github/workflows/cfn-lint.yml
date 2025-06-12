@@ -22,11 +22,14 @@ jobs:
         run: |
           pip install --upgrade pip
           pip install cfn-lint[sarif]
-      # Runs the ESlint code analysis
-      - name: Run cfn-lint
-        # eslint exits 1 if it finds anything to report
+      - name: establish paths
         run: |
-         shopt -s globstar # enable globbing
+         ls -la
+         pwd
+      # Runs the cfn-lint code analysis
+      - name: Run cfn-lint
+        run: |
+         shopt -s globstar
          cfn-lint --version
          cfn-lint ./**/*.yaml -f sarif --output results.sarif
       # Uploads results.sarif to GitHub repository using the upload-sarif action
